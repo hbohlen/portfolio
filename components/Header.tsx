@@ -1,4 +1,5 @@
 import React from 'react'
+import  Link  from 'next/link';
 
 import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
@@ -39,34 +40,38 @@ const Header = (props: Props) => {
 
             </motion.div>
 
-            <motion.div
-                initial={{
-                    x: 500,
-                    opacity: 0,
-                    scale: 0.5,
-                }}
-                animate={{
-                    x: 0,
-                    opacity: 1,
-                    scale: 1
+            <Link href="#contact">
 
-                }}
-                transition={{
-                    duration: 1.5,
-                }}
-                className="flex flex-row items-center text-gray-300 cursor-pointer"
+                <motion.div
+                    initial={{
+                        x: 500,
+                        opacity: 0,
+                        scale: 0.5,
+                    }}
+                    animate={{
+                        x: 0,
+                        opacity: 1,
+                        scale: 1
 
-            >
-                <SocialIcon
-                    className="cursor-pointer"
-                    network="email"
-                    fgColor="gray"
-                    bgColor="transparent"
-                />
+                    }}
+                    transition={{
+                        duration: 1.5,
+                    }}
+                    className="flex flex-row items-center text-gray-300 cursor-pointer"
 
-                <p className="uppercase hidden md:inline-flex text-sm text-gray-400">Contact</p>
+                >
+                    <SocialIcon
+                        className="cursor-pointer"
+                        network="email"
+                        fgColor="gray"
+                        bgColor="transparent"
+                    />
 
-            </motion.div>
+                    <p className="uppercase hidden md:inline-flex text-sm text-gray-400">Contact</p>
+
+                </motion.div>
+
+            </Link>
 
 
 
