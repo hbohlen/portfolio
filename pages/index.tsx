@@ -22,7 +22,7 @@ type Props = {
   projects: Project[];
   socials: Social[];
 
-}
+};
 
 
 const Home = ({ pageInfo, projects, skills, socials }: Props ) => {
@@ -74,7 +74,7 @@ const Home = ({ pageInfo, projects, skills, socials }: Props ) => {
 export default Home;
 
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<Props> = async() => {
   const pageInfo: PageInfo = await fetchPageInfo();
   const skills: Skill[] = await fetchSkills();
   const projects: Project[] = await fetchProjects();
@@ -93,3 +93,4 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   };
 
 };
+
