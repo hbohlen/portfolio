@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from 'next'
+import type { GetStaticProps } from 'next'
 import Head from 'next/head'
 import  Link  from 'next/link';
 
@@ -29,7 +29,7 @@ const Home = ({ pageInfo, projects, skills, socials }: Props ) => {
   return (
     <div className="bg-[rgb(36,35,35)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]">
       <Head>
-        Hayden's Portfolio
+        Portfolio
       </Head>
 
 

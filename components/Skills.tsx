@@ -16,7 +16,7 @@ const Skills = ({skills}: Props) => {
         </h3>
 
         <div className="grid grid-cols-4 gap-5">
-          {skills?.map(skill => (
+          {skills?.map((skill) => (
 
             <Skill key={skill._id} skill={skill} />
           ))}
