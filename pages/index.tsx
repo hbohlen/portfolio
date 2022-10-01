@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import  Link  from 'next/link';
 
@@ -9,9 +9,23 @@ import Projects from "../components/Projects";
 import ContactMe  from '../components/ContactMe';
 
 import { ChevronDoubleUpIcon } from "@heroicons/react/24/solid";
+import { PageInfo, Project, Skill, Social } from '../typings';
+import { fetchPageInfo } from '../utils/fetchPageInfo';
+import { fetchSkills } from '../utils/fetchSkills';
+import { fetchProjects } from '../utils/fetchProjects';
+import { fetchSocials } from '../utils/fetchSocials';
 
 
-const Home: NextPage = () => {
+type Props = {
+  pageInfo: PageInfo;
+  skills: Skill[];
+  projects: Project[];
+  socials: Social[];
+
+}
+
+
+const Home = ({ pageInfo, projects, skills, socials }: Props ) => {
   return (
     <div className="bg-[rgb(36,35,35)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]">
       <Head>
@@ -19,19 +33,19 @@ const Home: NextPage = () => {
       </Head>
 
 
-      <Header />
+      <Header socials={socials} />
 
       <section id="hero" className="snap-center">
-        <Hero />
+        <Hero pageInfo={pageInfo} />
 
       </section>
 
       <section id="skills" className="snap-start">
-        <Skills />
+        <Skills skills={skills} />
       </section>
 
       <section id="projects" className="snap-start">
-        <Projects />
+        <Projects projects={projects}/>
 
       </section>
 
@@ -57,4 +71,25 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default Home;
+
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const pageInfo: PageInfo = await fetchPageInfo();
+  const skills: Skill[] = await fetchSkills();
+  const projects: Project[] = await fetchProjects();
+  const socials: Social[] = await fetchSocials();
+
+
+  return {
+    props: {
+      pageInfo,
+      skills,
+      projects,
+      socials,
+    },
+    revalidate: 10,
+
+  };
+
+};

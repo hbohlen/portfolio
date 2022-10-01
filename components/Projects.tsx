@@ -1,14 +1,14 @@
 import React from 'react'
 
 import { motion } from "framer-motion";
+import { Project } from '../typings';
+import { urlFor } from '../sanity';
 
-type Props = {}
+type Props = {
+    projects: Project[];
+}
 
-const Projects = (props: Props) => {
-
-    const projects = [1, 2, 3, 4, 5];
-
-
+const Projects = ({projects}: Props) => {
   return (
     <motion.div
         initial={{ opacity: 0 }}
@@ -21,7 +21,7 @@ const Projects = (props: Props) => {
         </h3>
 
         <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]">
-            {projects.map((projects, i) => (
+            {projects.map((project, i) => (
                 <div className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen">
                     <motion.img 
                         initial={{
@@ -31,7 +31,8 @@ const Projects = (props: Props) => {
                         transition={{ duration: 1.2 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        src="https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_96102ac6497377cd53da621075fe828e/sanity.png"
+                        src={urlFor(project?.image).url()}
+                        alt=""
                     />
 
 
@@ -41,11 +42,15 @@ const Projects = (props: Props) => {
                                 Project {i + 1}
 
                             </span>
-                            
+                            <span className='ml-10'>
+                                {project?.title}
+
+
+                            </span>
                         </h4>
 
                         <p className="text-lg text-center md:text-left">
-                            project summary
+                            {project?.summary}
                         </p>
 
 
