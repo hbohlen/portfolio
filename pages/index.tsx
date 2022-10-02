@@ -10,10 +10,6 @@ import ContactMe  from '../components/ContactMe';
 
 import { ChevronDoubleUpIcon } from "@heroicons/react/24/solid";
 import { PageInfo, Project, Skill, Social } from '../typings';
-import { fetchPageInfo } from '../utils/fetchPageInfo';
-import { fetchSkills } from '../utils/fetchSkills';
-import { fetchProjects } from '../utils/fetchProjects';
-import { fetchSocials } from '../utils/fetchSocials';
 
 
 type Props = {
@@ -25,7 +21,7 @@ type Props = {
 };
 
 
-const Home = ({ pageInfo, projects, skills, socials }: Props ) => {
+const Home = (props: Props ) => {
   return (
     <div className="bg-[rgb(36,35,35)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]">
       <Head>
@@ -33,19 +29,19 @@ const Home = ({ pageInfo, projects, skills, socials }: Props ) => {
       </Head>
 
 
-      <Header socials={socials} />
+      <Header  />
 
       <section id="hero" className="snap-center">
-        <Hero pageInfo={pageInfo} />
+        <Hero  />
 
       </section>
 
       <section id="skills" className="snap-start">
-        <Skills skills={skills} />
+        <Skills  />
       </section>
 
       <section id="projects" className="snap-start">
-        <Projects projects={projects}/>
+        <Projects />
 
       </section>
 
@@ -74,23 +70,5 @@ const Home = ({ pageInfo, projects, skills, socials }: Props ) => {
 export default Home;
 
 
-export const getStaticProps: GetStaticProps<Props> = async() => {
-  const pageInfo: PageInfo = await fetchPageInfo();
-  const skills: Skill[] = await fetchSkills();
-  const projects: Project[] = await fetchProjects();
-  const socials: Social[] = await fetchSocials();
 
-
-  return {
-    props: {
-      pageInfo,
-      skills,
-      projects,
-      socials,
-    },
-    revalidate: 10,
-
-  };
-
-};
 

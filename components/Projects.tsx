@@ -5,10 +5,12 @@ import { Project } from '../typings';
 import { urlFor } from '../sanity';
 
 type Props = {
-    projects: Project[];
+
 }
 
-const Projects = ({projects}: Props) => {
+const Projects = (props: Props) => {
+
+    const projects = [1, 2, 3];
   return (
     <motion.div
         initial={{ opacity: 0 }}
@@ -21,8 +23,8 @@ const Projects = ({projects}: Props) => {
         </h3>
 
         <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]">
-            {projects.map((project, i) => (
-                <div key={project._id} className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen">
+            {projects.map((projects, i) => (
+                <div key={i} className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen">
                     <motion.img 
                         initial={{
                             y: -300,
@@ -31,7 +33,7 @@ const Projects = ({projects}: Props) => {
                         transition={{ duration: 1.2 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        src={urlFor(project?.image).url()}
+                        src="https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_96102ac6497377cd53da621075fe828e/sanity.png"
                         alt=""
                     />
 
@@ -43,14 +45,14 @@ const Projects = ({projects}: Props) => {
 
                             </span>
                             <span className='ml-10'>
-                                {project?.title}
+                                Admin Dashboard
 
 
                             </span>
                         </h4>
 
                         <p className="text-lg text-center md:text-left">
-                            {project?.summary}
+                            summary
                         </p>
 
 

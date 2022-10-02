@@ -7,14 +7,15 @@ import { PageInfo } from '../typings';
 import { urlFor } from '../sanity';
 
 type Props = {
-    pageInfo: PageInfo;
+   
+    
 };
 
-const Hero = ({ pageInfo }: Props) => {
+const Hero = ( props: Props) => {
 
     const [text, count] = useTypewriter({
         words: [
-            `Hi, My name is ${pageInfo?.name}`,
+            "Hi, My name is Hayden Bohlen",
             "Developer",
             "Designer",
             "Student"
@@ -36,7 +37,7 @@ const Hero = ({ pageInfo }: Props) => {
 
             <div className="z-20">
                 <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
-                    {pageInfo?.role}
+                    Web Developer
 
                  </h2>
 
