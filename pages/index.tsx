@@ -7,24 +7,19 @@ import Hero from "../components/Hero";
 import Skills from "../components/Skills"
 import Projects from "../components/Projects";
 import ContactMe  from '../components/ContactMe';
-
 import { ChevronDoubleUpIcon } from "@heroicons/react/24/solid";
-import { PageInfo, Project, Skill, Social } from '../typings';
-import { fetchSocials } from '../utils/fetchSocials';
-import sanity from "../sanity";
 
-const query = `
-    *[_type == "social"]
-`;
+
+
 
 type Props = {
  
-  socials: Social[];
+
 
 };
 
 
-const Home = ({socials}: Props ) => {
+const Home = (props: Props ) => {
   return (
     <div className="bg-[rgb(36,35,35)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]">
       <Head>
@@ -32,7 +27,7 @@ const Home = ({socials}: Props ) => {
       </Head>
 
 
-      <Header  socials={socials} />
+      <Header />
 
       <section id="hero" className="snap-center">
         <Hero  />
@@ -73,25 +68,7 @@ const Home = ({socials}: Props ) => {
 export default Home;
 
 
-/*
-export const getStaticProps: GetStaticProps<Props> = async() => {
-  const socials: Social[] = await fetchSocials();
 
-  return {
-    props: {
-      socials,
-    },
-  };
-
-};
-*/
-
-export const getStaticProps = async () => {
-  const socials = await sanity.fetch(query);
-  return {
-    props: { socials } // will be passed to the page component as props
-  };
-};
 
 
 
