@@ -11,7 +11,11 @@ import ContactMe  from '../components/ContactMe';
 import { ChevronDoubleUpIcon } from "@heroicons/react/24/solid";
 import { PageInfo, Project, Skill, Social } from '../typings';
 import { fetchSocials } from '../utils/fetchSocials';
+import sanity from "../sanity";
 
+const query = `
+    *[_type == "social"]
+`;
 
 type Props = {
  
@@ -69,6 +73,7 @@ const Home = ({socials}: Props ) => {
 export default Home;
 
 
+/*
 export const getStaticProps: GetStaticProps<Props> = async() => {
   const socials: Social[] = await fetchSocials();
 
@@ -79,7 +84,14 @@ export const getStaticProps: GetStaticProps<Props> = async() => {
   };
 
 };
+*/
 
+export const getStaticProps = async () => {
+  const socials = await sanity.fetch(query);
+  return {
+    props: { socials } // will be passed to the page component as props
+  };
+};
 
 
 

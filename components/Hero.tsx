@@ -4,7 +4,7 @@ import  Link  from 'next/link';
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircles from "../components/BackgroundCircles";
 import { PageInfo } from '../typings';
-import { urlFor } from '../sanity';
+//import { urlFor } from '../sanity';
 
 type Props = {
    
