@@ -1,7 +1,26 @@
 import { Social } from "../typings";
+import type { NextApiRequest, NextApiResponse } from "next";
+import { groq } from "next-sanity";
+import { sanityClient } from "../sanity";
+
+const query = groq`*[_type == "social"]`;
+
+type Data = {
+    socials: Social[]
+}
+
+export default async function handler(
+    req: NextApiRequest,
+    res: NextApiResponse<Data>
+  ) {
+    const socials: Social[] = await sanityClient.fetch(query);
+
+    res.status(200).json({ socials })
+  }
+
 
 export const fetchSocials = async() => {
-    const res = await fetch("https://qgkiang3.api.sanity.io/v2021-03-25/data/query/production?query=*%5B_type%20%3D%3D%20%22social%22%5D%20%7B%0A%20%20...%2C%0A%7D");
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getSocials`);
 
     const data = await res.json();
     const socials: Social[] = data.socials;
