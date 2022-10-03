@@ -1,19 +1,17 @@
 {
   "root": true,
   "project": {
-    "name": "sanity-portfolio"
+    "name": "portfolio"
   },
   "api": {
-    "projectId": "qic8yuc5",
+    "projectId": "qgkiang3",
     "dataset": "production"
   },
   "plugins": [
     "@sanity/base",
     "@sanity/default-layout",
     "@sanity/default-login",
-    "@sanity/desk-tool",
-    "@sanity/dashboard",
-    "vercel-deploy"
+    "@sanity/desk-tool"
   ],
   "env": {
     "development": {
