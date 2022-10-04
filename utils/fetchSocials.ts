@@ -1,5 +1,5 @@
 import { Social } from '../typings';
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from 'next'; //
 import { groq } from 'next-sanity';
 import { sanityClient } from '../sanity';
 
@@ -10,9 +10,7 @@ type Data = {
 };
 
 export const fetchSocials = async () => {
-  const res = await sanityClient.fetch(query);
-
-  const socials: Social[] = res;
+  const socials: Social[] = await sanityClient.fetch(query);
 
   console.log('fetching', socials);
 

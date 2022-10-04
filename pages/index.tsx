@@ -9,17 +9,21 @@ import Projects from '../components/Projects';
 import ContactMe from '../components/ContactMe';
 import { ChevronDoubleUpIcon } from '@heroicons/react/24/solid';
 
-import { Social } from '../typings';
-import { PageInfo } from '../typings';
+import { PageInfo, Project, Skill, Social } from '../typings';
+
 import { fetchSocials } from '../utils/fetchSocials';
 import { fetchPageInfo } from '../utils/fetchPageInfo';
+import { fetchSkills } from '../utils/fetchSkills';
+import { fetchProjects } from '../utils/fetchProjects';
 
 type Props = {
-  socials: Social[];
   pageInfo: PageInfo;
+  skills: Skill[];
+  projects: Project[];
+  socials: Social[];
 };
 
-const Home = ({ pageInfo, socials }: Props) => {
+const Home = ({ pageInfo, socials, skills, projects }: Props) => {
   return (
     <div className="bg-[rgb(36,35,35)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]">
       <Head>Portfolio</Head>
@@ -31,11 +35,11 @@ const Home = ({ pageInfo, socials }: Props) => {
       </section>
 
       <section id="skills" className="snap-start">
-        <Skills />
+        <Skills skills={skills} />
       </section>
 
       <section id="projects" className="snap-start">
-        <Projects />
+        <Projects projects={projects} />
       </section>
 
       <section id="contact" className="snap-start">
@@ -58,11 +62,15 @@ export default Home;
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const socials: Social[] = await fetchSocials();
   const pageInfo: PageInfo = await fetchPageInfo();
+  const skills: Skill[] = await fetchSkills();
+  const projects: Project[] = await fetchProjects();
 
   return {
     props: {
       pageInfo,
-      socials
+      socials,
+      skills,
+      projects
     },
     revalidate: 10
   };
