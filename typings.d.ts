@@ -21,10 +21,10 @@ export interface Social extends SanityBody {
 
 export interface PageInfo extends SanityBody {
   _type: 'pageInfo';
+  name: string;
   email: string;
   role: string;
   heroImage: Image;
-  name: string;
   phoneNumber: string;
 }
 
