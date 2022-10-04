@@ -14,9 +14,12 @@ export default {
       type: 'string'
     },
     {
-      name: 'profilePicture',
-      title: 'ProfilePicture',
-      type: 'image'
+      name: 'heroImage',
+      title: 'Image',
+      type: 'image',
+      options: {
+        hotspot: true
+      }
     },
 
     {

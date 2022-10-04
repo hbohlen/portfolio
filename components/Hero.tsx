@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import { Cursor, useTypewriter } from 'react-simple-typewriter';
 import BackgroundCircles from '../components/BackgroundCircles';
+import { urlFor } from '../sanity';
 import { PageInfo } from '../typings';
 
 type Props = {
@@ -22,7 +23,7 @@ const Hero = ({ pageInfo }: Props) => {
 
       <img
         className="relative rounded-full h-32 w-32 mx-auto object-cover"
-        src="https://cdn.sanity.io/images/qic8yuc5/production/568658a3673728dba97defa51a013dfa814600f8-360x360.png"
+        src={urlFor(pageInfo?.heroImage).url()}
         alt=""
       />
 
