@@ -24,6 +24,7 @@
     "react-social-icons": "^5.14.0"
   },
   "devDependencies": {
+    "@material-tailwind/react": "^1.2.4",
     "@sanity/cli": "^2.34.0",
     "@types/node": "18.7.23",
     "@types/react": "18.0.21",

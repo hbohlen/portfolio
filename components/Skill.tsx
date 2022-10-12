@@ -3,6 +3,7 @@ import React from 'react';
 
 import { urlFor } from '../sanity';
 import { Skill } from '../typings';
+import { Tooltip } from '@material-tailwind/react';
 
 type Props = {
   skill: Skill;
@@ -14,7 +15,7 @@ const Skill = ({ skill, directionLeft }: Props) => {
     <div className="group relative flex cursor-pointer">
       <motion.img
         initial={{
-          x: directionLeft ? -200 : 200,
+          x: directionLeft ? -100 : 100,
           opacity: 0
         }}
         transition={{ duration: 1 }}
