@@ -12,11 +12,14 @@ type Props = {
 
 const Skill = ({ skill, directionLeft }: Props) => {
   return (
-    <div className="group relative flex cursor-pointer">
+    <div className="group relative flex flex-row cursor-pointer">
       <img
         src={urlFor(skill?.image).url()}
-        className="rounded-full border border-gray-500 object-cover w-24 h-24 xl:32 xl:h-32 filter group-hover:grayscale transition-duration-300 ease-in-out"
+        className="rounded-full border border-gray-500 object-cover w-full filter group-hover:grayscale transition-duration-300 ease-in-out mb-10"
       />
+      <div className="flex absolute w-full justify-center bottom-5 text-gray-500">
+        {skill?.title}
+      </div>
     </div>
   );
 };
