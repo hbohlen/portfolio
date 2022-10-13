@@ -15,7 +15,7 @@ const Skill = ({ skill, directionLeft }: Props) => {
     <div className="group relative flex flex-row cursor-pointer">
       <img
         src={urlFor(skill?.image).url()}
-        className="rounded-full border border-gray-500 object-cover w-full filter group-hover:grayscale transition-duration-300 ease-in-out mb-10"
+        className="rounded-full border border-gray-500  w-full filter group-hover:grayscale transition-duration-300 ease-in-out mb-10"
       />
       <div className="flex absolute w-full justify-center bottom-5 text-gray-500">
         {skill?.title}
