@@ -43,7 +43,7 @@ const ContactMe = (props: Props) => {
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col space-y-2 w-[50vw] mx-auto">
+          className="flex flex-col space-y-2 w-[85vw] mx-auto">
           <div className="flex justify-between space-x-2">
             <input
               {...register('name')}
