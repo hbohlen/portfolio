@@ -19,30 +19,35 @@ const Projects = ({ projects }: Props) => {
           <div
             key={project._id}
             className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen">
-            <img className="w-[85vh]" src={urlFor(project?.image).url()} alt="" />
+            <img className="w-[85%] lg:w-[65%]" src={urlFor(project?.image).url()} alt="" />
 
             <div className="w-[85vw] space-y-10 px-8 md:px-10 max-w-5xl">
-              <h4 className="text-4xl font-semi-bold text-center">
-                <span className="text-center text-gray-500 text-bold ml-10">{project?.title}</span>
+              <h4 className="text-sm md:text-lg font-semi-bold text-center">
+                <span className="text-center text-gray-500 text-bold">{project?.title}</span>
               </h4>
 
-              <p className="text-lg text-gray-500 text-center">{project?.summary}</p>
-              <p className="text-lg text-center text-gray-500">Technologies: </p>
-              <div className="flex gap-5 justify-center">
-                {project?.technologies.map((technology) => (
-                  <img
-                    key={technology._id}
-                    className="h-10 w-10 rounded-full"
-                    src={urlFor(technology.image).url()}
-                  />
-                ))}
+              <p className="flex flex-wrap text-sm md:text-lg h-[30%] text-gray-500 text-center">
+                {project?.summary}
+              </p>
+
+              <div className="flex flex-col items-center relative bottom-0">
+                <p className="flex text-lg text-center pb-5 text-gray-500">Technologies: </p>
+                <div className="flex gap-5 justify-end">
+                  {project?.technologies.map((technology) => (
+                    <img
+                      key={technology._id}
+                      className="h-10 w-10 rounded-full"
+                      src={urlFor(technology.image).url()}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="w-full absolute top-[30%] bg-[#F7AB0A]/10 left-8 h-[500px] -skew-y-12" />
+      <div className="w-[100vw] absolute top-[30%] bg-[#F7AB0A]/10 left-8 h-[500px] -skew-y-12" />
     </div>
   );
 };

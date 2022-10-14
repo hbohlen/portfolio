@@ -17,7 +17,7 @@ const Skill = ({ skill, directionLeft }: Props) => {
         src={urlFor(skill?.image).url()}
         className="rounded-full border border-gray-500  w-full filter group-hover:grayscale transition-duration-300 ease-in-out mb-10"
       />
-      <div className="flex absolute w-full justify-center bottom-5 text-gray-500">
+      <div className="flex text-xs md:text-lg absolute w-full justify-center bottom-5 text-gray-500">
         {skill?.title}
       </div>
     </div>
