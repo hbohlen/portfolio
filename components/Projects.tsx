@@ -26,6 +26,12 @@ const Projects = ({ projects }: Props) => {
                 <span className="text-center text-gray-500 text-bold">{project?.title}</span>
               </h4>
 
+              <h4 className="text-center hover:text-white-500">
+                <a className="text-gray-500 hover:text-white-500" href={project?.linkToBuild}>
+                  <span>{project?.linkToBuild}</span>
+                </a>
+              </h4>
+
               <p className="flex flex-wrap text-sm md:text-lg h-[30%] text-gray-500 text-center">
                 {project?.summary}
               </p>
